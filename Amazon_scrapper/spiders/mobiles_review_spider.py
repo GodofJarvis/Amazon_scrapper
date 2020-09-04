@@ -10,7 +10,9 @@ class MobilesReviewSpiderSpider(scrapy.Spider):
 
         mobile_name = response.css('.a-size-medium::text').extract()
         price = response.css('.a-price-whole::text').extract()
+        users_purchased = response.css('.a-size-small .a-size-base').css('::text').extract()
 
         mobileItems['mobile_name'] = mobile_name
         mobileItems['price'] = price
+        print(mobile_name, price, users_purchased)
         yield mobileItems
